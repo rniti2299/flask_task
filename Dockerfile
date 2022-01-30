@@ -2,7 +2,7 @@
 FROM python:3
 
 #Set the working directory
-WORKDIR /python-docker
+WORKDIR /usr/src/app
 
 #copy all the files
 COPY . .
@@ -11,5 +11,8 @@ COPY . .
 RUN apt-get -y update
 RUN pip3 install -r requirements.txt
 
+#Expose the required port
+EXPOSE 5001
+
 #Run the command
-CMD [“python3”, "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["python3", "./app.py"]
