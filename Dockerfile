@@ -1,18 +1,10 @@
-#Create a ubuntu base image with python 3 installed.
-FROM python:3
+FROM python:3.8-slim-buster
 
-#Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /python-docker
 
-#copy all the files
-COPY . .
-
-#Install the dependencies
-RUN apt-get -y update
+COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-#Expose the required port
-EXPOSE 5001
+COPY . .
 
-#Run the command
-CMD ["python3", "./app.py"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
