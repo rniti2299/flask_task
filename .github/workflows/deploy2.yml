@@ -3,18 +3,17 @@ name: Deploy to ECR
 on:
 
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
 
   build:
 
-    name: Build Image
+    name: Build_Image
     runs-on: ubuntu-latest
 
 
     steps:
-
     - name: Check out code
       uses: actions/checkout@v2
 
