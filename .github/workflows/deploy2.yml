@@ -31,7 +31,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: docker_helloworld_demo
+        ECR_REPOSITORY: flask-app-repo
         # Not using the Image_Tag section
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY .
